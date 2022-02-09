@@ -1,0 +1,37 @@
+scalar Any
+type Query {
+	users(
+		userId: ID
+		search: String
+	): [User!]!
+}
+
+type Mutation {
+	register(
+		user_name:String!
+		password:String!
+		user_contact:String!
+		email:String!
+    ):Response!
+    login(
+        user_name:String!
+        password:String!
+    ):Response!
+}
+
+type User {
+	user_id: ID!
+	user_name: String!
+	user_contact:String!,
+	email:String!,
+	role:Boolean!
+}
+
+
+
+type Response{
+	status:Int
+	message:String
+	data:Any
+    token:Any
+}
